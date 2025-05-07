@@ -5,7 +5,7 @@ SkyDesk is an Electron-based desktop weather application that fetches and displa
 
 ## Clone from GitHub
 ```bash
-git clone https://github.com/yourusername/skydesk.git
+git clone https://github.com/NoManNayeem/skydesk.git
 cd skydesk
 ```
 
