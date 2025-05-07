@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Content Security Policy: allow Bootstrap Icons styles too -->
+  <meta http-equiv="Content-Security-Policy"
+        content="
+          default-src 'self';
+          script-src 'self';
+          style-src 'self' https://cdnjs.cloudflare.com;
+          connect-src https://geocoding-api.open-meteo.com https://api.open-meteo.com;
+        ">
+  <!-- Local styles -->
+  <link rel="stylesheet" href="./styles.css">
+  <!-- Bootstrap Icons (1.11.3) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+    integrity="sha512-/sERXk2ntVSkMsBx+q2scEQKPa6wCRQepJTMiw4V1oIxqRNO1r+J+9QRuJbJFa6t3Hb3twJXEe2tBHTqvnbFGA=="
+    crossorigin="anonymous"
+  >
+
+  <title>SkyDesk Weather</title>
+</head>
+<body>
+  <!-- Loading overlay (unchanged) -->
+  <div id="loading" class="loading-overlay hidden">
+    <div class="spinner"></div>
+  </div>
+
+  <div class="container">
+    <h1><i class="bi bi-cloud-sun-fill"></i> SkyDesk Weather</h1>
+
+    <div class="controls">
+      <select id="citySelect" class="form-select me-2">
+        <option value="">-- Select a city --</option>
+        <option>Dhaka</option>
+        <option>New York</option>
+        <option>London</option>
+        <option>Tokyo</option>
+        <option>Delhi</option>
+        <option>Sydney</option>
+      </select>
+      <button id="fetchWeatherBtn" class="btn btn-primary">
+        <i class="bi bi-cloud-arrow-down-fill"></i> Get Weather
+      </button>
+    </div>
+
+    <div id="resultCard" class="card hidden">
+      <table id="weatherTable">
+        <thead>
+          <tr>
+            <th><i class="bi bi-geo-alt-fill"></i> City</th>
+            <th><i class="bi bi-thermometer-half"></i> Temperature (°C)</th>
+            <th><i class="bi bi-wind"></i> Wind Speed (km/h)</th>
+            <th><i class="bi bi-info-circle"></i> Weather Code</th>
+          </tr>
+        </thead>
+        <tbody id="weatherBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="./renderer.js"></script>
+</body>
+</html>
